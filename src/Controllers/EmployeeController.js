@@ -1,5 +1,3 @@
-
-
 const getEmp = (req,res)=>{
             console.log("params...",req.params);
             console.log(req.params.name);
