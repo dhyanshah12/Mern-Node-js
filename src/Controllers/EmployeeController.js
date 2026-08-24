@@ -11,8 +11,14 @@ const getEmp = async(req,res)=>{
             res.json({message:`${req.params.name} from ${req.params.company}`})      
 }
 
+const searchUser = async(req,res)=>{
+
+        const data = req.query
+        console.log(data);
+        res.json({data:data})
+}
 module.exports = {
 
-        getEmp
+        getEmp,searchUser
 }
 
