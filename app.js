@@ -43,13 +43,15 @@ app.use("/user",userRoutes)
 const emproutes = require("./src/Routes/EmployeeRoutes")
 app.use("/emp",emproutes)
 
-
+const getDBConnection = require("./src/utils/DBConnection")
+getDBConnection()
 
 const PORT = 3000
 app.listen(PORT,()=>{
     console.log(`server started on Port ${PORT}`);
     
 })
+
 
 
 // app.get("/test",(req,res)=>{
