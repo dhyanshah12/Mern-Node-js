@@ -37,11 +37,15 @@ const app = express()
 //         `)
 // })
 
+app.use(express.json())
 const userRoutes = require("./src/Routes/UserRoutes")
 app.use("/user",userRoutes)
 
 const emproutes = require("./src/Routes/EmployeeRoutes")
 app.use("/emp",emproutes)
+
+const roleroutes = require("./src/Routes/RoleRoutes")
+app.use("/role",roleroutes)
 
 const getDBConnection = require("./src/utils/DBConnection")
 getDBConnection()

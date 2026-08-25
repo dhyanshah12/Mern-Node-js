@@ -1,4 +1,5 @@
 const EmpModel = require("../models/EmpModel");
+const UserModel = require("../models/UserModel");
 
 const getEmp = async(req,res)=>{
             console.log("params...",req.params);
@@ -11,14 +12,20 @@ const getEmp = async(req,res)=>{
             res.json({message:`${req.params.name} from ${req.params.company}`})      
 }
 
-const searchUser = async(req,res)=>{
+const searchEmp = async(req,res)=>{
 
         const data = req.query
         console.log(data);
         res.json({data:data})
 }
+const createEmp = async(req,res)=>{
+        
+        console.log(req.body);
+        const savedUser = await EmpModel.insertOne(req.body)
+        res.json({message:"user created",data:savedUser})
+}
 module.exports = {
 
-        getEmp,searchUser
+        getEmp,searchEmp,createEmp
 }
 

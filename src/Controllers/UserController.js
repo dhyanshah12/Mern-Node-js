@@ -36,6 +36,18 @@ const searchUser = async(req,res)=>{
         console.log(data);
         res.json({data:data})
     }
+
+const createUser =async (req,res)=>{
+
+    try{
+         const savedUser = await userModel.insertOne(req.body)
+    res.json({mesage:"user created ",data:savedUser})
+    }catch(err){
+        res.json({err:err})
+    }
+    console.log("req body",req.body);
+   
+}
 module.exports = {
-    getAllUsers,getUserById,searchUser
+    getAllUsers,getUserById,searchUser,createUser
 }

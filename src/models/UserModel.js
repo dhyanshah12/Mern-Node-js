@@ -5,6 +5,22 @@ const Schema  = mongoose.Schema
 
 const userModel = new Schema({
 
+    name:{
+        type:String
+    },
+    age:{
+        type:Number
+    },
+    bloodGroup:{
+        type:String,
+        enum:["A+","B+","AB+","A-"]
+        },
+    skills:[{
+        type:String
+    }],
+    address:{
+        type:Object
+    }
 })
 
 module.exports = mongoose.model("user",userModel)
