@@ -47,6 +47,12 @@ app.use("/emp",emproutes)
 const roleroutes = require("./src/Routes/RoleRoutes")
 app.use("/role",roleroutes)
 
+const categoryRoutes = require("./src/Routes/CategoryRoutes")
+app.use("/category",categoryRoutes)
+
+const productRoutes = require("./src/Routes/ProductRoutes")
+app.use("/product",productRoutes)
+
 const getDBConnection = require("./src/utils/DBConnection")
 getDBConnection()
 
