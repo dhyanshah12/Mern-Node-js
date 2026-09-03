@@ -14,7 +14,7 @@
 
 const express = require("express");
 const { data } = require("./employee");
-
+require("dotenv").config
 const app = express()
 
 
@@ -56,7 +56,8 @@ app.use("/product",productRoutes)
 const getDBConnection = require("./src/utils/DBConnection")
 getDBConnection()
 
-const PORT = 3000
+// const PORT = 3000
+const PORT = process.env.PORT || 3001
 app.listen(PORT,()=>{
     console.log(`server started on Port ${PORT}`);
     
