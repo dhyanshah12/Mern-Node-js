@@ -1,5 +1,5 @@
 const userModel = require("../models/UserModel")
-
+const mailsend = require("../utils/MailUtils")
 const getAllUsers = async(req,res)=>{
        
         const users = await userModel.find()
@@ -30,6 +30,8 @@ const getUserById = async(req,res)=>{
     // console.log(req.params.id);
     res.json({message:"get user by id called....",id:req.params.id})
 }
+
+
 const searchUser = async(req,res)=>{
 
         const data= req.query
@@ -41,9 +43,14 @@ const createUser =async (req,res)=>{
 
     try{
          const savedUser = await userModel.insertOne(req.body)
+        await mailsend(req.body.email,"Hello")
     res.json({mesage:"user created ",data:savedUser})
+
     }catch(err){
+         console.log(err);
         res.json({err:err})
+       
+        
     }
     console.log("req body",req.body);
    
