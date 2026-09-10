@@ -30,6 +30,8 @@ const userModel = new Schema({
         type:String,
         required:true
     },
-    
+    profilepicUrl:{
+        type:String
+    }
 })
 module.exports = mongoose.model("user",userModel)

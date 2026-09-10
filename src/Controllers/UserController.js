@@ -42,18 +42,16 @@ const searchUser = async(req,res)=>{
 const createUser =async (req,res)=>{
 
     try{
-         const savedUser = await userModel.insertOne(req.body)
-        await mailsend(req.body.email,"Hello")
-    res.json({mesage:"user created ",data:savedUser})
+        // const savedUser = await userModel.insertOne(req.body)
+        console.log("req file...",req.file); //meta data
+        const savedUser = await userModel.insertOne({...req.body,profilepicUrl:req.file.path})
+        // await mailsend(req.body.email,"Hello")
+    res.json({mesage:"user saved ",data:savedUser})
 
     }catch(err){
-         console.log(err);
         res.json({err:err})
-       
-        
     }
     console.log("req body",req.body);
-   
 }
 
 
